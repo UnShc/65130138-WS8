@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Report from "./Report";
-import Product from "./Product";
+import Foods from "./Foods";
 import NoPage from "./NoPage";
 export default class BaseLayout extends Component {
   render() {
