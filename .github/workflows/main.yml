@@ -1,7 +1,7 @@
 name: Firebase Deployment
 on:
   push:
-    branches:
+    branches:git
       - main
 jobs:
   build:
