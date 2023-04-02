@@ -37,11 +37,12 @@ export default class Product extends Component {
       <div>
         <div>
           <h2>รายการอาหารทั้งหมด</h2>
+          <br></br>
         </div>
 
         <Row>
           {data.map((rs, index) => (
-            <Col lg="4" md="6" sm="12" key={index}>
+            <Col lg="3" md="6" sm="12" key={index}>
               <div style={{ paddingBottom: "25px" }}>
                 <Card>
                   <Card.Img variant="top" src={rs.cover} />
