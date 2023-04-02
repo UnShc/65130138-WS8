@@ -12,10 +12,10 @@ export default class BaseLayout extends Component {
       <div>
         <Navbar bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand href="/product">DPU</Navbar.Brand>
+            <Navbar.Brand href="/Product">DPU</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/product">Foods</Nav.Link>
-              <Nav.Link href="/nopage">Member</Nav.Link>
+              <Nav.Link href="/Product">Foods</Nav.Link>
+              <Nav.Link href="/NoPage">Member</Nav.Link>
             </Nav>
             <div style={{ color: "white" }}>Anchana Srichamnong</div>
           </Container>
