@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Report from "./Report";
-import Foods from "./Foods";
+import Product from "./Product";
 import NoPage from "./NoPage";
 export default class BaseLayout extends Component {
   render() {
@@ -15,7 +15,7 @@ export default class BaseLayout extends Component {
             <Navbar.Brand href="/">DPU</Navbar.Brand>
             <Nav className="me-auto">
               <Nav.Link href="/report">Home</Nav.Link>
-              <Nav.Link href="/foods">Foods</Nav.Link>
+              <Nav.Link href="/product">Foods</Nav.Link>
             </Nav>
             <div style={{ color: "white" }}>Anchana Srichamnong</div>
           </Container>

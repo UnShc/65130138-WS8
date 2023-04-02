@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 
 const API_FROM_RECDER = "https://api-nodejs-sdni.onrender.com";
-export default class Foods extends Component {
+export default class Product extends Component {
   state = {
     data: [],
   };
@@ -13,7 +13,7 @@ export default class Foods extends Component {
   getData = async () => {
     try {
       await axios
-        .get(`${API_FROM_RECDER}/foods`)
+        .get(`${API_FROM_RECDER}/products`)
         .then((response) => {
           let res = response.data;
 
