@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
 import Product from "./Product";
 import NoPage from "./NoPage";
 export default class BaseLayout extends Component {
@@ -28,7 +27,6 @@ export default class BaseLayout extends Component {
                 <Route path="/" element={<Product />} />
                 <Route path="/product" element={<Product />} />
                 <Route path="/nopage" element={<NoPage />} />
-                
               </Route>
             </Routes>
           </BrowserRouter>
