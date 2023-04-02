@@ -12,10 +12,10 @@ export default class BaseLayout extends Component {
       <div>
         <Navbar bg="primary" variant="dark">
           <Container>
-            <Navbar.Brand href="/Product">DPU</Navbar.Brand>
+            <Navbar.Brand href="/">DPU</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/Product">Foods</Nav.Link>
-              <Nav.Link href="/NoPage">Member</Nav.Link>
+              <Nav.Link href="/product">Foods</Nav.Link>
+              <Nav.Link href="/nopage">Member</Nav.Link>
             </Nav>
             <div style={{ color: "white" }}>Anchana Srichamnong</div>
           </Container>
@@ -25,10 +25,10 @@ export default class BaseLayout extends Component {
           <BrowserRouter>
             <Routes>
               <Route>
-                <Route path="/" element={<Report />} />
-                <Route path="report" element={<Report />} />
+                <Route path="/" element={<Product />} />
                 <Route path="product" element={<Product />} />
-                <Route path="*" element={<NoPage />} />
+                <Route path="nopage" element={<NoPage />} />
+                
               </Route>
             </Routes>
           </BrowserRouter>
