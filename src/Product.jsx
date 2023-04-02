@@ -36,7 +36,7 @@ export default class Product extends Component {
     return (
       <div>
         <div>
-          <h2>รายการอาหารทั้งหมด</h2>
+          <h2>Page 1 : หน้าแสดงรายการข้อมูล (API : Foods)</h2>
           <br></br>
         </div>
 

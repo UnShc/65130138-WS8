@@ -5,7 +5,8 @@ export default class NoPage extends Component {
     return (
       <div>
         <div align="center">
-          <h1>Error Content</h1>
+          <h2>Page 2 : รายชื่อสมาชิก</h2><br></br>
+          <h3>นางสาวอัญชนา ศรีจำนง รหัสนักศึกษา 65130138</h3>
         </div>
       </div>
     );
