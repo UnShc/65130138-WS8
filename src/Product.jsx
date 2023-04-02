@@ -1,24 +1,38 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import Table from "react-bootstrap/Table";
 import axios from "axios";
-
-const API_FROM_RECDER = "https://six5130138-ws8-api.onrender.com";
-export default class Product extends Component {
+import Common from "./common";
+const BASE_URL = Common.API_URL;
+export default class report extends Component {
   state = {
-    data: [],
+    zipcode: 33000,
+    amphur_code: 0,
+    amphur_name: "",
+    province_code: 0,
+    province_name: "",
+    district: [],
   };
-
   getData = async () => {
     try {
       await axios
-        .get(`${API_FROM_RECDER}/products`)
+        .get(`${BASE_URL}/${this.state.zipcode}`)
         .then((response) => {
           let res = response.data;
 
+          if (res.district === undefined) {
+            this.setState({
+              district: [],
+            });
+          }
           this.setState({
-            data: res,
+            amphur_name: res.amphur_name,
+            province_name: res.province_name,
+            district: res.district,
           });
         })
         .catch((err) => {
@@ -28,33 +42,68 @@ export default class Product extends Component {
       console.log(error);
     }
   };
+  filter = (e) => {
+    this.setState({
+      zipcode: e.target.value,
+    });
+    this.getData();
+  };
+
   componentDidMount() {
     this.getData();
   }
   render() {
-    const { data } = this.state;
+    const { district } = this.state;
     return (
       <div>
-        <div>
-          <h2>Page 1 : หน้าแสดงรายการข้อมูล (API : Foods)</h2>
-          <br></br>
-        </div>
-
         <Row>
-          {data.map((rs, index) => (
-            <Col lg="3" md="6" sm="12" key={index}>
-              <div style={{ paddingBottom: "25px" }}>
-                <Card>
-                  <Card.Img variant="top" src={rs.cover} />
-                  <Card.Body>
-                    <Card.Title>{rs.name}</Card.Title>
-                    {rs.description}
-                  </Card.Body>
-                </Card>
-              </div>
-            </Col>
-          ))}
+          <Col lg="9">
+            <div align="left">
+              <h3>
+                อำเภอ <u>{this.state.amphur_name}</u> จังหวัด{" "}
+                <u>
+                  {this.state.province_name} {this.state.zipcode}
+                </u>
+              </h3>
+            </div>
+          </Col>
+          <Col lg="3">
+            <Form.Group>
+              <Form.Control
+                type="text"
+                placeholder="ระบุเลขไปรษณีย์ 5 หลัก"
+                onChange={this.filter}
+                onKeyUp={this.filter}
+                maxLength="5"
+              />
+            </Form.Group>
+          </Col>
         </Row>
+
+        <div style={{ paddingTop: "15px" }}>
+          <Card>
+            <Card.Body>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสตำบล</th>
+                    <th>ตำบล</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {district?.map((rs, index) => (
+                    <tr key={index}>
+                      <td align="center">{index + 1}</td>
+                      <td>{rs.district_code}</td>
+                      <td>{rs.district_name}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     );
   }
